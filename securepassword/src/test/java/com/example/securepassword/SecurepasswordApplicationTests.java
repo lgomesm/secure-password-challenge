@@ -64,5 +64,4 @@ class SecurepasswordApplicationTests {
 		assertEquals(1, errors.size());
 		assertEquals("A senha deve possuir pelo menos um caractere especial", errors.get(0));
 	}
-
 }
