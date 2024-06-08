@@ -18,7 +18,7 @@ public class PasswordValidationController {
     private final PasswordValidationService passwordValidationService;
 
     @PostMapping("/validate")
-    public ResponseEntity<?> validatePassword(@RequestBody PasswordRequest passwordRequest) {
+    public ResponseEntity<List<String>> validatePassword(@RequestBody PasswordRequest passwordRequest) {
         List<String> validationErrors = passwordValidationService.validate(passwordRequest.getPassword());
 
         return validationErrors.isEmpty()
