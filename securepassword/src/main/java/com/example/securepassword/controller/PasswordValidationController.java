@@ -1,9 +1,7 @@
 package com.example.securepassword.controller;
 
 import com.example.securepassword.service.PasswordValidationService;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,10 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/password")
 @RequiredArgsConstructor
-@Getter
-@Setter
 public class PasswordValidationController {
-    private PasswordValidationService passwordValidationService;
+    private final PasswordValidationService passwordValidationService;
 
     @PostMapping("/validate")
     public ResponseEntity<?> validatePassword(@RequestBody PasswordRequest passwordRequest) {
@@ -29,5 +25,4 @@ public class PasswordValidationController {
                 ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<>(validationErrors, HttpStatus.BAD_REQUEST);
     }
-
 }
